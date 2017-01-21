@@ -20,6 +20,27 @@
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:gravity="center"
-        android:onClick="activityRecognize"
+        android:onClick="gotoMenu"
         android:text="@string/button_send" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/smeargle"
+        android:id="@+id/imageView"
+        android:maxHeight="250dp"
+        android:maxWidth="250dp"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:layout_above="@+id/button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp" />
+
+    <TextView
+        android:text="Moody"
+        android:textSize="100sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/introText"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
