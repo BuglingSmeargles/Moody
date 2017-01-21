@@ -1,5 +1,6 @@
 package com.smeargles.moody;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -82,16 +83,23 @@ public class main_menu extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
+            Intent intentCam = new Intent(this, RecognizeActivity.class);
+            startActivity(intentCam);
         } else if (id == R.id.nav_gallery) {
-
+            Intent intent = new Intent(this, user_journal.class);
+            startActivity(intent);
         } else if (id == R.id.nav_slideshow) {
-
+            Intent intentData = new Intent(this, user_data.class);
+            startActivity(intentData);
         } else if (id == R.id.nav_manage) {
-
+            Intent intentProfile = new Intent(this, user_profile.class);
+            startActivity(intentProfile);
         } else if (id == R.id.nav_share) {
-
+            Intent intentAbout = new Intent(this, app_about.class);
+            startActivity(intentAbout);
         } else if (id == R.id.nav_send) {
-
+            Intent intentSettings = new Intent(this, app_settings.class);
+            startActivity(intentSettings);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

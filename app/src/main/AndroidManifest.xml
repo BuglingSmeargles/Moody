@@ -52,7 +52,15 @@
         <activity
             android:name=".main_menu"
             android:label="@string/title_activity_main_menu"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".user_journal"
+            android:label="@string/title_activity_user_journal"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".user_data" />
+        <activity android:name=".user_profile" />
+        <activity android:name=".app_about" />
+        <activity android:name=".app_settings"></activity>
     </application>
 
 </manifest>
