@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.smeargles.moody">
+    package="com.smeargles.moody"
+    xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-sdk tools:overrideLibrary="com.microsoft.projectoxford.emotion, com.microsoft.projectoxford.face"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,6 +24,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings" />
+        <activity android:name=".DisplayMessageActivity"></activity>
+        <activity
+            android:name="com.smeargles.moody.RecognizeActivity"
+            android:label="@string/title_activity_analyze"
+            android:parentActivityName="com.smeargles.moody.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.smeargles.moody.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.smeargles.moody.helper.SelectImageActivity"
+            android:label="@string/select_an_image"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
