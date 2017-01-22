@@ -9,6 +9,7 @@ import android.view.View;
 
 public class user_journal extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
