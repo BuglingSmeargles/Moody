@@ -43,4 +43,14 @@
         android:layout_height="wrap_content"
         android:id="@+id/introText"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="A moment to yourself \n Helping you identify your emotions"
+        android:layout_width="wrap_content"
+        android:textSize="16sp"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5"
+        android:gravity="center"
+        android:layout_below="@+id/introText"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

@@ -35,11 +35,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        /*
         TextView t = (TextView) findViewById(R.id.introText);
         Typeface classyFont = Typeface.createFromAsset(getAssets(), "fonts/28116.otf");
         t.setTypeface(classyFont);
-
+        */
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();

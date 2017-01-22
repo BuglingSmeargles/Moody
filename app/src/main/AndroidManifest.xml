@@ -53,7 +53,7 @@
 
         <activity
             android:name=".main_menu"
-            android:label="@string/title_activity_main_menu"
+            android:label="Home"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".user_journal"
@@ -64,8 +64,11 @@
         <activity android:name=".app_about" />
         <activity android:name=".app_settings" />
         <activity android:name=".backend" />
-        <activity android:name=".user_input"
-            android:label="Daily Input"></activity>
+        <activity
+            android:name=".user_input"
+            android:label="Daily Input" />
+        <activity android:name=".end"
+            android:label="Thank You!"></activity>
     </application>
 
 </manifest>

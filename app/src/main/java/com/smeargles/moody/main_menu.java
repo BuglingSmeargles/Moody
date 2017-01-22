@@ -27,7 +27,7 @@ public class main_menu extends AppCompatActivity
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                toInput();
+                toInput(view);
             }
         });
 
@@ -41,9 +41,14 @@ public class main_menu extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
-    public void toInput() {
+    public void toInput(View view) {
         Intent intentRecord = new Intent(this, user_input.class);
         startActivity(intentRecord);
+    }
+
+    public void toEnd(View view) {
+        Intent intent = new Intent(this, end.class);
+        startActivity(intent);
     }
 
     @Override

@@ -13,31 +13,11 @@
     tools:context="com.smeargles.moody.main_menu"
     tools:showIn="@layout/app_bar_main_menu">
 
-    <ImageView
-        android:id="@+id/imageView3"
+
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="24dp"
-        android:layout_marginEnd="18dp"
-        android:adjustViewBounds="true"
-        android:maxHeight="280dp"
-        android:maxWidth="280dp"
-        android:scaleType="fitCenter"
-        app:srcCompat="@drawable/smeargle" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:maxLines="2"
-        android:text="Welcome to \nMoody!"
-        android:textSize="28sp"
-        android:layout_marginBottom="46dp"
-        android:layout_above="@+id/imageView3"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="46dp" />
-
-
+        app:srcCompat="@drawable/smilecon"
+        android:id="@+id/imageButton"
+        android:onClick="toEnd"/>
 </RelativeLayout>
