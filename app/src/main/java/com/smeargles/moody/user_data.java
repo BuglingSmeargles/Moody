@@ -1,5 +1,4 @@
 package com.smeargles.moody;
-
 import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.content.DialogInterface;
@@ -165,7 +164,7 @@ public class user_data extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_user_data);
 
         nskAlgoSdk = new NskAlgoSdk();
 
@@ -185,10 +184,11 @@ public class user_data extends AppCompatActivity {
             return;
         }
 
-        headsetButton = (Button)this.findViewById(R.id.headsetButton);
+        headsetButton = (Button) this.findViewById(R.id.headsetButton);
         cannedButton = (Button)this.findViewById(R.id.cannedDatabutton);
         setAlgosButton = (Button)this.findViewById(R.id.setAlgosButton);
         setIntervalButton = (Button)this.findViewById(R.id.setIntervalButton);
+
         startButton = (Button)this.findViewById(R.id.startButton);
         stopButton = (Button)this.findViewById(R.id.stopButton);
 
@@ -229,8 +229,8 @@ public class user_data extends AppCompatActivity {
 
         stateText = (TextView)this.findViewById(R.id.stateText);
         sqText = (TextView)this.findViewById(R.id.sqText);
-
-        headsetButton.setOnClickListener(new View.OnClickListener() {
+        headsetButton.setOnClickListener(
+                new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 output_data_count = 0;
