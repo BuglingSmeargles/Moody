@@ -34,4 +34,5 @@ dependencies {
     compile files('lib/androidplot-core-0.6.1.jar')
     compile files('lib/NskAlgoSdk.jar')
     compile files('lib/libStreamSDK.jar')
+    compile 'com.jjoe64:graphview:4.2.1'
 }
