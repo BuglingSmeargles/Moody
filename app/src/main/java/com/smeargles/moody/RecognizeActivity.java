@@ -49,6 +49,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.microsoft.projectoxford.emotion.EmotionServiceClient;
@@ -66,6 +67,8 @@ import java.util.List;
 
 import com.smeargles.moody.helper.ImageHelper;
 
+import org.w3c.dom.Text;
+
 public class RecognizeActivity extends AppCompatActivity {
 
     // Flag to indicate which task is to be performed.
@@ -81,7 +84,7 @@ public class RecognizeActivity extends AppCompatActivity {
     private Bitmap mBitmap;
 
     // The edit to show status and result.
-    private EditText mEditText;
+    private TextView mTextView;
 
     private EmotionServiceClient client;
 
@@ -95,7 +98,7 @@ public class RecognizeActivity extends AppCompatActivity {
         }
 
         mButtonSelectImage = (Button) findViewById(R.id.buttonSelectImage);
-        mEditText = (EditText) findViewById(R.id.editTextResult);
+        mTextView = (TextView) findViewById(R.id.editTextResult);
     }
 
     @Override
@@ -127,25 +130,25 @@ public class RecognizeActivity extends AppCompatActivity {
         try {
             new doRequest(false).execute();
         } catch (Exception e) {
-            mEditText.append("Error encountered. Exception is: " + e.toString());
+            mTextView.append("Error encountered. Exception is: " + e.toString());
         }
 
         String faceSubscriptionKey = getString(R.string.faceSubscription_key);
         if (faceSubscriptionKey.equalsIgnoreCase("Please_add_the_face_subscription_key_here")) {
-            mEditText.append("\n\nThere is no face subscription key in res/values/strings.xml. Skip the sample for detecting emotions using face rectangles\n");
+            mTextView.append("\n\nThere is no face subscription key in res/values/strings.xml. Skip the sample for detecting emotions using face rectangles\n");
         } else {
             // Do emotion detection using face rectangles provided by Face API.
             try {
                 new doRequest(true).execute();
             } catch (Exception e) {
-                mEditText.append("Error encountered. Exception is: " + e.toString());
+                mTextView.append("Error encountered. Exception is: " + e.toString());
             }
         }
     }
 
     // Called when the "Select Image" button is clicked.
     public void selectImage(View view) {
-        mEditText.setText("");
+        mTextView.setText("");
 
         Intent intent;
         intent = new Intent(RecognizeActivity.this, com.smeargles.moody.helper.SelectImageActivity.class);
@@ -295,16 +298,16 @@ public class RecognizeActivity extends AppCompatActivity {
             // Display based on error existence
 
             if (this.useFaceRectangles == false) {
-                mEditText.append("\n\nRecognizing emotions with auto-detected face rectangles...\n");
+                mTextView.append("\n\nRecognizing emotions with auto-detected face rectangles...\n");
             } else {
-                mEditText.append("\n\nRecognizing emotions with existing face rectangles from Face API...\n");
+                mTextView.append("\n\nRecognizing emotions with existing face rectangles from Face API...\n");
             }
             if (e != null) {
-                mEditText.setText("Error: " + e.getMessage());
+                mTextView.setText("Error: " + e.getMessage());
                 this.e = null;
             } else {
                 if (result.size() == 0) {
-                    mEditText.append("No emotion detected :(");
+                    mTextView.append("No emotion detected :(");
                 } else {
                     Integer count = 0;
                     // Covert bitmap to a mutable bitmap by copying it
@@ -317,16 +320,15 @@ public class RecognizeActivity extends AppCompatActivity {
                     paint.setColor(Color.RED);
 
                     for (RecognizeResult r : result) {
-                        mEditText.append(String.format("\nFace #%1$d \n", count));
-                        mEditText.append(String.format("\t anger: %1$.5f\n", r.scores.anger));
-                        mEditText.append(String.format("\t contempt: %1$.5f\n", r.scores.contempt));
-                        mEditText.append(String.format("\t disgust: %1$.5f\n", r.scores.disgust));
-                        mEditText.append(String.format("\t fear: %1$.5f\n", r.scores.fear));
-                        mEditText.append(String.format("\t happiness: %1$.5f\n", r.scores.happiness));
-                        mEditText.append(String.format("\t neutral: %1$.5f\n", r.scores.neutral));
-                        mEditText.append(String.format("\t sadness: %1$.5f\n", r.scores.sadness));
-                        mEditText.append(String.format("\t surprise: %1$.5f\n", r.scores.surprise));
-                        mEditText.append(String.format("\t face rectangle: %d, %d, %d, %d", r.faceRectangle.left, r.faceRectangle.top, r.faceRectangle.width, r.faceRectangle.height));
+                        mTextView.append(String.format("\nFace #%1$d \n", count));
+                        mTextView.append(String.format("\t anger: %1$.5f\n", r.scores.anger));
+                        mTextView.append(String.format("\t contempt: %1$.5f\n", r.scores.contempt));
+                        mTextView.append(String.format("\t disgust: %1$.5f\n", r.scores.disgust));
+                        mTextView.append(String.format("\t fear: %1$.5f\n", r.scores.fear));
+                        mTextView.append(String.format("\t happiness: %1$.5f\n", r.scores.happiness));
+                        mTextView.append(String.format("\t neutral: %1$.5f\n", r.scores.neutral));
+                        mTextView.append(String.format("\t sadness: %1$.5f\n", r.scores.sadness));
+                        mTextView.append(String.format("\t surprise: %1$.5f\n", r.scores.surprise));
                         faceCanvas.drawRect(r.faceRectangle.left,
                                 r.faceRectangle.top,
                                 r.faceRectangle.left + r.faceRectangle.width,
@@ -337,7 +339,6 @@ public class RecognizeActivity extends AppCompatActivity {
                     ImageView imageView = (ImageView) findViewById(R.id.selectedImage);
                     imageView.setImageDrawable(new BitmapDrawable(getResources(), mBitmap));
                 }
-                mEditText.setSelection(0);
             }
 
             mButtonSelectImage.setEnabled(true);
