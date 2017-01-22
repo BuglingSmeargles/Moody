@@ -26,10 +26,8 @@ public class main_menu extends AppCompatActivity
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
-            @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                toInput();
             }
         });
 
@@ -41,6 +39,11 @@ public class main_menu extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    public void toInput() {
+        Intent intentRecord = new Intent(this, user_input.class);
+        startActivity(intentRecord);
     }
 
     @Override
@@ -98,7 +101,7 @@ public class main_menu extends AppCompatActivity
             Intent intentAbout = new Intent(this, app_about.class);
             startActivity(intentAbout);
         } else if (id == R.id.nav_send) {
-            Intent intentSettings = new Intent(this, app_settings.class);
+            Intent intentSettings = new Intent(this, backend.class);
             startActivity(intentSettings);
         }
 

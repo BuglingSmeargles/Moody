@@ -33,7 +33,7 @@
         <activity android:name=".DisplayMessageActivity" />
         <activity
             android:name=".RecognizeActivity"
-            android:label="@string/title_activity_analyze"
+            android:label="Photo Analyzer"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -63,7 +63,9 @@
         <activity android:name=".user_profile" />
         <activity android:name=".app_about" />
         <activity android:name=".app_settings" />
-        <activity android:name=".backend"></activity>
+        <activity android:name=".backend" />
+        <activity android:name=".user_input"
+            android:label="Daily Input"></activity>
     </application>
 
 </manifest>
