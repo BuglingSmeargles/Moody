@@ -62,7 +62,8 @@
         <activity android:name=".user_data" />
         <activity android:name=".user_profile" />
         <activity android:name=".app_about" />
-        <activity android:name=".app_settings"></activity>
+        <activity android:name=".app_settings" />
+        <activity android:name=".backend"></activity>
     </application>
 
 </manifest>
